@@ -1,0 +1,13 @@
+#wrapper #content-wrapper #content {
+    display: contents;
+}
+.main {
+    flex: 1 0 auto;
+}
+footer.sticky-footer {
+    padding: 2rem 0;
+    flex-shrink: 0;
+}
+.card-title {
+    margin-bottom: 0;
+}

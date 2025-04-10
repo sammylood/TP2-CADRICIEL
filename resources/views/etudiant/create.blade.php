@@ -1,14 +1,15 @@
 @extends('layouts.app')
 @section('title', 'Creer Etudiant')
 @section('content')
-<h1>Add Etudiant</h1>
+
 <div class="row justify-content-center">
+    <h1 class="justify-content-left">Ajouter Étudiant</h1>
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">Ajouter nouvel Etudiant</h5>
             </div>
-           
+
             <div class="card-body">
                 <form method="post">
                     @csrf
@@ -23,7 +24,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="adresse" class="form-label">Adresse</label>
-                        <textarea id="adresse" name="adresse" class="form-control"value="{{ old('adresse')}}"></textarea>
+                        <textarea id="adresse" name="adresse" class="form-control" value="{{ old('adresse')}}"></textarea>
                         @if($errors->has('adresse'))
                         <div class="text-danger mt-2">
                             {{ $errors->first('adresse') }}
