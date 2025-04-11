@@ -15,9 +15,9 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 
 Route::get('/index', [EtudiantController::class, 'index'])->name('etudiant.index');
@@ -28,7 +28,7 @@ Route::put('/edit/etudiant/{etudiant}', [EtudiantController::class, 'update'])->
 
 Route::delete('/etudiant/{etudiant}', [EtudiantController::class, 'destroy'])->name('etudiant.delete');
 
-
+Route::get('/etudiants', [etudiantController::class, 'index'])->name('etudiant.index')->middleware('auth');
 Route::get('/create/etudiant', [EtudiantController::class, 'create'])->name('etudiant.create');
 Route::post('/create/etudiant', [EtudiantController::class, 'store'])->name('etudiant.store');
 

@@ -2,8 +2,10 @@
 @section('title', 'Creer Etudiant')
 @section('content')
 
-<div class="row justify-content-center">
-    <h1 class="justify-content-left">Ajouter Étudiant</h1>
+
+
+<div class="main row justify-content-center mt-5 mb-5">
+    <!-- <h1 class="justify-content-left">Ajout Étudiant</h1> -->
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
@@ -57,6 +59,10 @@
                             {{ $errors->first('date_naissance') }}
                         </div>
                         @endif
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-control">
                     </div>
                     <input type="submit" value="Save" class="btn btn-primary">
                 </form>
