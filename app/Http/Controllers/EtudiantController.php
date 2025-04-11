@@ -35,13 +35,13 @@ class EtudiantController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:etudiants',
-            'password' => 'required|min:6|max:20'
+            'courriel' => 'required|email|unique:etudiants',
+            // 'password' => 'required|min:6|max:20'
         ]);
 
         $etudiant = new Etudiant();
         $etudiant->fill($request->all());
-        $etudiant->password = Hash::make($request->password);
+        // $etudiant->password = Hash::make($request->password);
         $etudiant->save();
 
         return redirect(route('etudiant.index'))->withSuccess('etudiant created successfully!');
@@ -72,7 +72,7 @@ class EtudiantController extends Controller
             'nom' => 'required|string|max:80',
             'adresse'  => 'required|string|max:180',
             'telephone'  => 'required|string|max:50',
-            'email'  => 'string|max:80',
+            'courriel'  => 'string|max:80',
             'date_naissance' => 'nullable|date'
         ]);
 
@@ -80,7 +80,7 @@ class EtudiantController extends Controller
             'nom' => $request->nom,
             'adresse'  => $request->adresse,
             'telephone'  => $request->telephone,
-            'email'  => $request->email,
+            'courriel'  => $request->email,
             'date_naissance'  => $request->date_naissance,       
         ]);
 

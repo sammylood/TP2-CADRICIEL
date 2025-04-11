@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Ville;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Etudiant>
@@ -18,7 +19,7 @@ class EtudiantFactory extends Factory
      */
     public function definition(): array
     {
-        $city = Ville::inRandomOrder()->first();
+        $city = Ville::inRandomOrder()->value(2);
 
         return [
             'nom' => $this->faker->name,
@@ -26,7 +27,8 @@ class EtudiantFactory extends Factory
             'telephone' => $this->faker->phoneNumber, // Random phone number
             'email' => $this->faker->unique()->safeEmail, // Unique email
             'date_naissance' => $this->faker->date('Y-m-d', '2007-01-01'), // Birthday before 2005
-            'ville_id' => $city->id
+            'ville_id' => $city->id,
+            'user_id' => User::factory()
         ];
-    }
+        }
 }

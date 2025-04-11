@@ -33,7 +33,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a style="background-color:#F3F4F8;" class="sidebar-brand d-flex align-items-center justify-content-center sidebar-light" href="{{ route('etudiant.index') }}">
+            <a style="background-color:#F3F4F8;" class="sidebar-brand d-flex align-items-center justify-content-center sidebar-light" href="/">
 
                 <img style="width: 100%;" src="/img/logo_college_maisonneuve.png" alt="">
 
@@ -82,6 +82,22 @@
                         <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>
                 </div> -->
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('forum.index') }}">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Forum</span>
+                </a>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('forum.create') }}">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Créer un article</span>
+                </a>
+
             </li>
 
             <!-- Divider -->
@@ -314,6 +330,30 @@
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
+
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="{{ route('login') }}" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Language</span>
+
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-flag fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Francais
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-flag fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    English
+                                </a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="{{ route('login') }}" id="userDropdown" role="button"
@@ -345,13 +385,23 @@
                             </div>
                         </li>
 
+
                     </ul>
 
                 </nav>
                 <!-- End of Topbar -->
 
 
-                @yield('content')
+                <div class="container my-5">
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{session('success')}}
+                    </div>
+                    @endif
+                    @yield('content')
+                </div>
+
+
 
 
                 <!-- Footer -->

@@ -40,14 +40,17 @@ class Etudiant extends Model
         'password' => 'hashed',
     ];
 
-    // public function Articles()
-    // {
-    //     return $this->hasMany(Article::class);
-    // }
+
 
 
     public function ville()
     {
         return $this->belongsTo(Ville::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

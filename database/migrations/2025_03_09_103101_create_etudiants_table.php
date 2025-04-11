@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('adresse');
             $table->string('telephone');
-            $table->string('courriel');
+            $table->string('email');
             $table->date('date_naissance')->nullable();
             $table->unsignedBigInteger('ville_id');
             $table->unsignedBigInteger('user_id');

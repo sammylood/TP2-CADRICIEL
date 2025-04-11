@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -19,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/forum', [ArticleController::class, 'index'])->name('forum.index');
+Route::get('/forum/{article}', [ArticleController::class, 'show'])->name('forum.show');
+Route::get('/create/article', [ArticleController::class, 'create'])->name('forum.create');
+Route::post('/create/article', [ArticleController::class, 'store'])->name('forum.store');
 
 Route::get('/index', [EtudiantController::class, 'index'])->name('etudiant.index');
 Route::get('/etudiant/{etudiant}', [EtudiantController::class, 'show'])->name('etudiant.show');
